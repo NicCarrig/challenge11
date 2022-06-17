@@ -52,7 +52,23 @@ function createNote(newNote, notesArray){
     return newNote;
 }
 
+app.delete('/api/notes/:id', (req, res) => {
+    deleteNote(req.params.id, database);
+    res.json(true);
+});
 
+function deleteNote(id, notesArray){
+    for(let i = 0; i < notesArray.length; i++){
+        if(notesArray[i].id == id){
+            notesArray.splice(i, 1);
+            fs.writeFileSync(
+                path.join(__dirname, './db/db.json'),
+                JSON.stringify(notesArray, null, 2)
+            );
+            return;
+        }
+    }
+}
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
