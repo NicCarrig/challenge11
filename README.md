@@ -9,7 +9,7 @@ This application allows the user to make a to-do style list in their web browser
 
 When the user initially navigates to the site, they should see the welcome/banner screen. Once the user clicks the "Get Started" button they will then be sent to the notes pages where they can start to enter, view, and delete notes. Each note will be given a unique ID and can be either displayed or deleted using it.
 
-##Dependencies
+## Dependencies
 This app uses node.js and express.js
 
 
