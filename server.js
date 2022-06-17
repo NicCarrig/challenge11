@@ -30,10 +30,17 @@ app.post('/api/notes', (req, res) => {
 });
 
 function createNote(newNote, notesArray){
+    let noteID = 0;
 
-    if(!notesArray){
-        notesArray = [];
+    if(notesArray.length === 0){
+        noteID = 1;
     }
+    else{
+        //gets id of last element in the array and increases it by one for new ID
+        noteID = parseInt(notesArray[notesArray.length - 1].id) + 1;
+    }
+
+    newNote.id = noteID;
 
     notesArray.push(newNote);
 
